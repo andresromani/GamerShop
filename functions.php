@@ -26,6 +26,12 @@ function mostrarMensaje($rta) {
         case "0x004":
             $mensaje = "<b style='color: red;'>Error: no se pudo editar el producto</b>";
         break;
+        case "0x005":
+            $mensaje = "<b style='color: green;'>producto eliminado con éxito</b>";
+        break;
+        case "0x006":
+            $mensaje = "<b style='color: red;'>Error: no se pudo eliminar el producto</b>";
+        break;
         default:
             $mensaje = "<b style='color: red;'>Error: código no reconocido</b>";
         break;
@@ -105,6 +111,41 @@ function editarProducto($producto_id, $nombre, $precio, $descripcion, $marca, $c
         else {
             return $rta = "0x004";
         }
+    }
+    catch (PDOException $e) {
+        "Error: " . $e -> getMessage();
+    }
+}
+
+function eliminarProducto($producto_id) {
+    global $conexion;
+
+    try {
+        $sql = "DELETE FROM productos WHERE producto_id = ?";
+        $stmt = $conexion -> prepare($sql);
+        $stmt -> bindParam(1, $producto_id, PDO::PARAM_INT);
+        
+        if ($stmt -> execute()) {
+            return $rta = "0x005";
+        }
+        else {
+            return $rta = "0x006";
+        }
+    }
+    catch (PDOException $e) {
+        "Error: " . $e -> getMessage();
+    }
+}
+
+function camiarEstadoProducto($producto_id, $estado) {
+    global $conexion;
+
+    try {
+        $sql = "UPDATE productos SET estado = ? WHERE producto_id = ?";
+        $stmt = $conexion -> prepare($sql);
+        $stmt -> bindParam(1, $estado, PDO::PARAM_INT);
+        $stmt -> bindParam(2, $producto_id, PDO::PARAM_INT);
+        $stmt -> execute();
     }
     catch (PDOException $e) {
         "Error: " . $e -> getMessage();

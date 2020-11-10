@@ -28,42 +28,42 @@
             
             <div class="productos-destacados">
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>

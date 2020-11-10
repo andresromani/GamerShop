@@ -11,7 +11,7 @@ body {
 /* MENU */
 
 header {
-    background: url("menu-bg.jpg");
+    background: url("../img/menu-bg.jpg");
 }
 
 header a {
@@ -80,7 +80,7 @@ header > div .btn-acceder:hover {
 
 /* PAGE */
 .page {
-    min-height: calc(100vh - 573px);
+    min-height: calc(100vh - 567px);
 }
 
 /* BANNER */
@@ -162,19 +162,19 @@ header > div .btn-acceder:hover {
 }
 
 .banner-img {
-    background: url("pc-gamer.jpg") no-repeat center/cover;
+    background: url("../img/pc-gamer.jpg") no-repeat center/cover;
 }
 
 /* MARCAS */
 .marcas {
     height: 150px;
-    background: url("marcas.png");
+    background: url("../img/marcas.png");
 }
 
 /* DESTACADOS - NUEVOS */
 .titulo-destacados, .titulo-nuevos {
     height: 80px;
-    background: url("menu-bg.jpg");
+    background: url("../img/menu-bg.jpg");
     color: #fff;
     font-size: 2em;
 
@@ -235,6 +235,105 @@ header > div .btn-acceder:hover {
     display: block;
     color: rgb(9, 111, 136);
     letter-spacing: 1.5px;
+}
+
+/* PRODUCTOS */
+.cont-productos {
+    width: 85%;
+    margin: 20px auto;
+
+    display: flex;
+}
+
+.categorias {
+    list-style: none;
+
+    flex: 1;
+}
+
+.categorias li {
+    line-height: 2em;
+}
+
+.categorias button {
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.categorias button:focus {
+    outline: none;
+}
+
+.subcategorias {
+    list-style: none;
+    display: block;
+}
+
+.subcategorias a {
+    text-decoration: none;
+    color: #4e4e4e;
+}
+
+.show {
+    display: none;
+}
+
+.productos {
+    flex: 4;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.productos article {
+    padding: 5px;
+    border: 1px solid #cecece;
+    height: 500px;
+}
+
+.productos article img {
+    width: 100%;
+    height: 250px;
+}
+
+.productos article h3 {
+    font-size: 2em;
+    font-weight: normal;
+}
+
+.productos article .stock {
+    padding: 8px;
+    margin: 20px 0;
+    background-color: #2d3ab6;
+    color: #fff;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.productos article span {
+    display: block;
+}
+
+.productos article .precio {
+    color: #077e78;
+    font-size: 3em;
+}
+
+.botonesProducto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botonesProducto a {
+    text-decoration: none;
+    padding: 8px;
+    background-color: rgb(7, 153, 92);
+    color: #fff;
+    font-size: 1.8em;
+    border-radius: 5px;
 }
 
 /* FOOTER */

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamerShop</title>
     <!-- custom css -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -17,17 +17,17 @@
             <nav class="menu">
                 <a href="#">PC Armada</a>
                 <a href="#">Armá tu PC</a>
-                <a href="#">Productos</a>
+                <a href="./?page=productos">Productos</a>
                 <a href="#">Notebooks</a>
                 <a href="#">Monitores</a>
                 <a href="./?page=formulario">Contacto</a>
             </nav>
 
             <div class="redes">
-                <a href="#"><img src="facebook.png" height="40px" alt=""></a>
-                <a href="#"><img src="instagram.png" height="40px" alt=""></a>
-                <a href="#"><img src="twitter.png" height="40px" alt=""></a>
-                <a href="#"><img src="wpp.png" height="40px" alt=""></a>
+                <a href="#"><img src="img/facebook.png" height="40px" alt=""></a>
+                <a href="#"><img src="img/instagram.png" height="40px" alt=""></a>
+                <a href="#"><img src="img/twitter.png" height="40px" alt=""></a>
+                <a href="#"><img src="img/wpp.png" height="40px" alt=""></a>
             </div>
 
             <div class="botones">

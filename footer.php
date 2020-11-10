@@ -38,6 +38,7 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/a0c20fd8da.js" crossorigin="anonymous"></script>
 </body>
 </html>
