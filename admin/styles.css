@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: black;
+}
+
+.contenedor {
+    width: 70%;
+    margin: 0 auto;
+    height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.9em;
+}
+
+.botones a {
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: #106366;
+    border-radius: 10px;
+}
+
+/* PANEL */
+.cont-panel {
+    width: 75%;
+    margin: 20px auto;
+}
+
+.titulo-panel {
+    background-color: #343434;
+    color: #fff;
+}
+
+.panel td {
+    padding: 10px;
+}
+
+/* FORMULARIO */
+.form-contenedor {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.form-contenedor h1 {
+    margin: 10px 0 30px 0;
+    font-size: 3em;
+    font-weight: normal;
+}
+
+.form div {
+    margin: 10px 0;
+}
+
+.form div label {
+    font-size: 1.4em;
+}
+
+.form div input, select {
+    width: 100%;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.form img {
+    width: 250px;
+    height: 250px;
+}
+
+.form .btnAgregar {
+    background-color: #106366;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    height: 50px;
+    font-size: 1.6em;
+    cursor: pointer;
+}

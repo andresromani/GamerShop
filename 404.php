@@ -1,0 +1,1 @@
+<h1 style="color: red;">Error 4040: Página no encontrada</h1>
