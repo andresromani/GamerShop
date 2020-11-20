@@ -1,3 +1,11 @@
+<?php
+if (isset($_GET['buscar'])) {
+    include "admin/conexion.php";
+    include "functions.php";
+    include "header.php";
+}
+?>
+
 <div class="cont-productos">
     <ul class="categorias">
     <?php
@@ -74,6 +82,53 @@
                 echo "Error: " . $e.getMessage();
             }
         }
+        else if (isset($_GET['buscar'])) {
+            $buscar = $_GET['buscar'];
+            $buscar1 = "'%" . $_GET['buscar'] . "%'";
+            $buscar2 = "'%" . $_GET['buscar'];
+            $buscar3 = $_GET['buscar'] . "%'";
+
+            try {
+                $sql = "SELECT p.* FROM productos AS p INNER JOIN categorias AS c ON p.categoria_id = c.categoria_id INNER JOIN subcategorias AS s ON p.subcategoria_id = s.subcategoria_id WHERE p.nombre LIKE '%$buscar%' OR c.nombre LIKE '%$buscar%' OR s.nombre LIKE '%$buscar%'";
+                $stmt = $conexion -> prepare($sql);
+                $stmt -> bindParam(1, $buscar, PDO::PARAM_STR);
+                $stmt -> bindParam(2, $buscar, PDO::PARAM_STR);
+                $stmt -> bindParam(3, $buscar, PDO::PARAM_STR);
+                $stmt -> execute();
+
+                while ($producto = $stmt -> fetch()) {
+                ?>
+                <article>
+                    <img src="img/productos/<?php echo $producto['imagen'] ?>" alt="">
+                    <h3><?php echo $producto['nombre'] ?></h3>
+                    <?php
+                    if ($producto['stock'] > 0) {
+                    ?>
+                    <span class="stock">En stock</span>
+                    <?php
+                    }
+                    else {
+                    ?>
+                    <span class="stock">Sin stock</span>
+                    <?php
+                    }
+                    ?>
+                    <div class="botonesProducto">
+                        <span class="precio"><?php echo $producto['precio'] ?></span>
+                        <a href="#">Carrito</a>
+                    </div>
+                </article>
+                <?php
+                }
+            }
+            catch (PDOException $e) {
+                echo "Error: " . $e.getMessage();
+            }
+        }
         ?>
     </div>
 </div>
+
+<?php
+include "footer.php";
+?>

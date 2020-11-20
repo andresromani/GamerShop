@@ -34,8 +34,37 @@
         </div>
 
         <div>
-            <label for="subcategoría:">Sub-categoría:</label>
-            <select type="text" name="subcategoria" id="subcategoria">
+            <label for="categoría:">Categoría:</label>
+            <select type="text" name="categoria" id="categoria">
+            <?php
+                $categoria_id = $producto['categoria_id'];
+                $sql2 = "SELECT * FROM categorias WHERE categoria_id = ?";
+                $stmt2 = $conexion -> prepare($sql2);
+                $stmt2 -> bindParam(1, $categoria_id, PDO::PARAM_STR);
+                $stmt2 -> execute();
+
+                while ($categoria = $stmt2 -> fetch()) {
+                ?>
+                <option value="<?php echo $categoria['categoria_id'] ?>" selected><?php echo $categoria['nombre'] ?></option>
+                <?php
+                }
+
+                $sql3 = "SELECT * FROM categorias";
+                $stmt3 = $conexion -> prepare($sql3);
+                $stmt3 -> execute();
+
+                while ($categoria = $stmt3 -> fetch()) {
+                ?>
+                <option value="<?php echo $categoria['categoria_id'] ?>"><?php echo $categoria['nombre'] ?></option>
+                <?php
+                }
+            ?>
+            </select>
+        </div>
+
+        <div>
+            <label for="sub_categorias">Sub-categorias</label>
+            <select name="subcategoria" id="subcategoria">
             <?php
                 $subcategoria_id = $producto['subcategoria_id'];
                 $sql2 = "SELECT * FROM subcategorias WHERE subcategoria_id = ?";
@@ -43,19 +72,9 @@
                 $stmt2 -> bindParam(1, $subcategoria_id, PDO::PARAM_STR);
                 $stmt2 -> execute();
 
-                while ($subcategoria = $stmt2 -> fetch()) {
+                while ($sub_categoria = $stmt2 -> fetch()) {
                 ?>
-                <option value="<?php echo $subcategoria['subcategoria_id'] ?>" selected><?php echo $subcategoria['nombre'] ?></option>
-                <?php
-                }
-
-                $sql3 = "SELECT * FROM subcategorias";
-                $stmt3 = $conexion -> prepare($sql3);
-                $stmt3 -> execute();
-
-                while ($subcategoria = $stmt3 -> fetch()) {
-                ?>
-                <option value="<?php echo $subcategoria['subcategoria_id'] ?>"><?php echo $subcategoria['nombre'] ?></option>
+                <option value="<?php echo $sub_categoria['categoria_id'] ?>" selected><?php echo $sub_categoria['nombre'] ?></option>
                 <?php
                 }
             ?>
@@ -84,7 +103,7 @@
         ?>
 
         <div>
-            <input type="submit" name="btnEditar" value="editar" class="btnAgregar">
+            <input type="submit" name="accion" value="Editar" class="btnAgregar">
         </div>
     </form> 
 </div>  

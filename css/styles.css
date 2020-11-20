@@ -29,28 +29,52 @@ header > div {
     align-items: center;
 }
 
-header > div .logo {
-    font-size: 1.9em;
-    margin-right: 80px;
+.logo {
+    flex-basis: 15%;
 }
 
-header > div > nav {
-    flex: 4;
+.search {
+    flex-basis: 55%;
+    height: 30px;
+}
+
+.search form {
+    width: 90%;
+    background-color: #fff;
+    height: 35px;
+    border-radius: 5px;
 
     display: flex;
+    justify-content: space-between;
 }
 
-header > div > nav a {
-    padding: 0 10px;
-    border-right: 1px solid white;
-    font-size: 1.2em;
+.search-bar {
+    flex-basis: 90%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+.search form button {
+    flex-basis: 10%;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: rgb(22, 94, 177);
+    color: #fff;
+    cursor: pointer;
+}
+
+.search form button:focus {
+    outline: none;
 }
 
 header > div .redes {
-    flex: 2;
+    flex-basis: 18%;
 
     display: flex;
-    justify-content: flex;
     align-items: center;
 }
 
@@ -60,7 +84,7 @@ header > div .redes a {
 }
 
 header > div .botones {
-    width: 200px;
+    flex-basis: 12%;
 
     display: flex;
     justify-content: space-between;
@@ -76,6 +100,30 @@ header > div .btn-acceder {
 
 header > div .btn-acceder:hover {
     background-color: #2b2b2b;
+}
+
+.contenedor-menu {
+    background: linear-gradient(to right,
+    #343434,
+    #141414
+    );
+}
+
+.menu {
+    height: 50px;
+    width: 50%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu a {
+    padding: 0 10px;
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #fff;
 }
 
 /* PAGE */
@@ -114,51 +162,6 @@ header > div .btn-acceder:hover {
     font-size: 2.3em;
     font-weight: normal;
     margin: 0 0 60px 0;
-}
-
-.search-bar {
-    background-color: white;
-    width: 80%;
-    margin: 0 auto;
-    height: 60px;
-    border-radius: 20px;
-
-    display: flex;
-    justify-content: space-between;
-}
-
-.search-bar input {
-    border: none;
-    flex: 1;
-    border-radius: 20px 0 0 20px;
-}
-
-.search-bar input:focus {
-    outline: none;
-}
-
-.search {
-    border: 2px solid #868686;
-    width: 60px;
-    border-radius: 0 20px 20px 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.search a {
-    padding: 25px;
-    font-size: 2em;
-    color: #868686;
-}
-
-.search:hover {
-    background-color: #dbdbdb;
-}
-
-.search a:hover {
-    color: #343434;
 }
 
 .banner-img {

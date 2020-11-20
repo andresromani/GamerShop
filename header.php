@@ -14,14 +14,12 @@
                 <a href="./?page=inicio">GamerShop</a>
             </div>
 
-            <nav class="menu">
-                <a href="#">PC Armada</a>
-                <a href="#">Armá tu PC</a>
-                <a href="./?page=productos">Productos</a>
-                <a href="#">Notebooks</a>
-                <a href="#">Monitores</a>
-                <a href="./?page=formulario">Contacto</a>
-            </nav>
+            <div class="search">
+                <form action="./productos.php" method="GET">
+                    <input type="search" name="buscar" class="search-bar">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+            </div>
 
             <div class="redes">
                 <a href="#"><img src="img/facebook.png" height="40px" alt=""></a>
@@ -38,3 +36,14 @@
             </div>
         </div>
     </header>
+
+    <div class="contenedor-menu">
+        <nav class="menu">
+            <a href="#">PC Armada</a>
+            <a href="#">Armá tu PC</a>
+            <a href="./?page=productos">Productos</a>
+            <a href="#">Notebooks</a>
+            <a href="#">Monitores</a>
+            <a href="./?page=formulario">Contacto</a>
+        </nav>
+    </div>

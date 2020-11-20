@@ -23,17 +23,17 @@
         </div>
 
         <div>
-            <label for="subcategoría:">Sub-categoría:</label>
-            <select type="text" name="subcategoria" id="subcategoria">
+            <label for="categoría:">Categorías:</label>
+            <select name="categoria" id="categoria">
             <?php
             try {
-                $sql = "SELECT * FROM subcategorias";
+                $sql = "SELECT * FROM categorias";
                 $stmt = $conexion -> prepare($sql);
                 $stmt -> execute();
 
-                while ($subcategoria = $stmt -> fetch()) {
+                while ($categoria = $stmt -> fetch()) {
                 ?>
-                <option value="<?php echo $subcategoria['subcategoria_id'] ?>"><?php echo $subcategoria['nombre'] ?></option>
+                <option value="<?php echo $categoria['categoria_id'] ?>"><?php echo $categoria['nombre'] ?></option>
                 <?php
                 }
             }
@@ -41,6 +41,12 @@
                 "Error: " . $e -> getMessage();
             }
             ?>
+            </select>
+        </div>
+
+        <div>
+            <label for="sub_categoria:">Sub-categorías:</label>
+            <select name="subcategoria" id="subcategoria">
             </select>
         </div>
 
@@ -55,7 +61,7 @@
         </div>
 
         <div>
-            <input type="submit" name="btnAgregar" value="agregar" class="btnAgregar">
+            <input type="submit" name="accion" value="Agregar" class="btnAgregar">
         </div>
     </form> 
 </div>  

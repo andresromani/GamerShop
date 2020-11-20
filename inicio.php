@@ -4,14 +4,6 @@
                     <h1>Encontrá</h1>
                     <h3>tu computadora perfecta</h3>
                 </div>
-            
-                <div class="search-bar">
-                    <input type="search">
-                    
-                    <div class="search">
-                        <a href="#"><i class="fas fa-search"></i></a>
-                    </div>
-                </div>
             </div>
         
             <div class="banner-img"></div>
