@@ -17,10 +17,10 @@
                 <h4>seguinos</h4>
 
                 <ul>
-                    <li><a href="#"><img src="facebook.png" height="40px" alt=""></a></li>
-                    <li><a href="#"><img src="instagram.png" height="40px" alt=""></a></li>
-                    <li><a href="#"><img src="twitter.png" height="40px" alt=""></a></li>
-                    <li><a href="#"><img src="wpp.png" height="40px" alt=""></a></li>
+                    <li><a href="#"><img src="img/facebook.png" height="40px" alt=""></a></li>
+                    <li><a href="#"><img src="img/instagram.png" height="40px" alt=""></a></li>
+                    <li><a href="#"><img src="img/twitter.png" height="40px" alt=""></a></li>
+                    <li><a href="#"><img src="img/wpp.png" height="40px" alt=""></a></li>
                 </ul>
             </div>
 

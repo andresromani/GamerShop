@@ -32,6 +32,9 @@ function mostrarMensaje($rta) {
         case "0x006":
             $mensaje = "<b style='color: red;'>Error: no se pudo eliminar el producto</b>";
         break;
+        case "0x009":
+            $mensaje = "<b style='color: red;'>Error: email no registrado</b>";
+        break;
         default:
             $mensaje = "<b style='color: red;'>Error: código no reconocido</b>";
         break;
@@ -72,7 +75,7 @@ function agregarProducto($nombre, $precio, $descripcion, $marca, $categoria_id, 
         }
     }
     catch (PDOException $e) {
-        "Error: " . $e -> getMessage();
+        echo "Error: " . $e -> getMessage();
     }
 }
 
@@ -113,7 +116,7 @@ function editarProducto($producto_id, $nombre, $precio, $descripcion, $marca, $c
         }
     }
     catch (PDOException $e) {
-        "Error: " . $e -> getMessage();
+        echo "Error: " . $e -> getMessage();
     }
 }
 
@@ -133,7 +136,7 @@ function eliminarProducto($producto_id) {
         }
     }
     catch (PDOException $e) {
-        "Error: " . $e -> getMessage();
+        echo "Error: " . $e -> getMessage();
     }
 }
 
@@ -148,7 +151,84 @@ function camiarEstadoProducto($producto_id, $estado) {
         $stmt -> execute();
     }
     catch (PDOException $e) {
-        "Error: " . $e -> getMessage();
+        echo "Error: " . $e -> getMessage();
+    }
+}
+
+function registrarUsuario($nombre, $apellido, $mail, $clave) {
+    global $conexion;
+
+    //ENCRIPTANDO LA CLAVE
+    $clave = password_hash($clave, PASSWORD_DEFAULT);
+    $codigo = 'abcdefghi%jklmnopqrstuvwxyzA%BCDEFGHIJKLMN/OPQRSTUVW.XYZ012345%6789*';
+    $codigo = md5(str_shuffle($codigo));
+
+    //CORREO ELECTRONICO
+    $asunto = "Activar cuenta - Bienvenido";
+    $cuerpo = "<img src=https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/lps/lp1/l07_ES.png>";
+    $cuerpo .= "<h1 style=color:pink>Activación de cuenta</h1>";
+    $cuerpo .= "<b>Click en el siguiente enlace para activar su cuenta</b><br>";
+    $cuerpo .= "<a style='background-color:lightpink;color:red;padding:20px;text-decoration:none;' href='https://miweb.com/activacionUsuario.php?correo=" . $email . "&codigo=" . $codigo . "&estado=1'>Activar usuario</a><br><br>chao blabla";
+    $cabecera = "From:" . $email . "\r\n";
+    $cabecera .= "MIME-Version: 1.0\r\n";
+    $cabecera .= "Content-Type: text/html; charset=UTF-8\r\n";
+    mail($email, $asunto, $cuerpo, $cabecera);
+
+    try {
+        $sql = "INSERT INTO usuarios (nombre, apellido, email, clave, codigo, estado) VALUES (?, ?, ?, ?, ?, 1)";
+        $stmt = $conexion -> prepare($sql);
+        $stmt -> bindParam(1, $nombre, PDO::PARAM_STR);
+        $stmt -> bindParam(2, $apellido, PDO::PARAM_STR);
+        $stmt -> bindParam(3, $mail, PDO::PARAM_STR);
+        $stmt -> bindParam(4, $clave, PDO::PARAM_STR);
+        $stmt -> bindParam(5, $codigo, PDO::PARAM_STR);
+
+        if ($stmt -> execute()) {
+            return $rta = "0x007";
+        }
+        else {
+            return $rta = "0x008";
+        }
+    }
+    catch (PDOException $e) {
+        echo "Error: " . $e -> getMessage();
+    }
+}
+
+function ingresar($mail, $clave) {
+    global $conexion;
+
+    try {
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $stmt = $conexion -> prepare($sql);
+        $stmt -> bindParam(1, $mail, PDO::PARAM_STR);
+        $stmt -> execute();
+        $usuario = $stmt -> fetch();
+
+        if ($usuario) {
+            if ($usuario['estado'] == 1) {
+                $claveC = $usuario['clave'];
+
+                if (password_verify($clave, $claveC)) {
+                    $_SESSION['email'] = $usuario['email'];
+                    $_SESSION['nombre'] = $usuario['nombre'];
+                    
+                    header('location: ./?');
+                }
+                else {
+                    header('location: ./?page=login&rta=0x011');
+                }
+            }
+            else {
+                header('location: ./?page=login&rta=0x010');
+            }
+        }
+        else {
+            header('location: ./?page=login&rta=0x009');
+        }
+    }
+    catch (PDOException $e) {
+        echo "Error: " . $e -> getMessage();
     }
 }
 ?>

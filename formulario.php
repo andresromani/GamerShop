@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -12,17 +12,20 @@
 
         <h2>Formulario de contacto</h2>
 
-        <form action="">
+        <form action="./?page=validar" method="POST">
             <input type="text" placeholder="Nombre" class="nombre">
-            <input type="text" placeholder="Apellido">
             <br>
             <br>
-
+            <input type="text" placeholder="Apellido" style="width: 230px;">
+            <br>
+            <br>
             <input type="mail" placeholder="Mail" style="width: 300px;">
-            <br><br>
+            <br>
+            <br>
             <textarea name="textarea" rows="10" cols="50" placeholder="Comentarios"></textarea>
-            <br> <br>
-            <input class="boton" type="submit" value="Enviar">
+            <br>
+            <br>
+            <input class="boton" type="submit" name="accion" value="Enviar">
         </form>
     </div>
 </body>

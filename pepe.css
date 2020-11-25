@@ -1,11 +1,11 @@
-body {
+body{
     background-color: rgb(0, 0, 0);
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
 
 .form-cont {
-    width: 45%;
+    width: 75%;
     margin: 50px auto 500px auto;
 }
 
@@ -21,12 +21,12 @@ body {
 }
 
 
-.form-cont form{
+form{
     border: black;
     outline: none;
     background: transparent;
 }
-.form-cont .boton{
+.boton{
 background-color: black;
 color: white;
 cursor: pointer;
@@ -34,7 +34,7 @@ text-transform: uppercase;
 letter-spacing: 0.3em;
 }
 
-.form-cont input {
+input {
     font-size: 0.9em;
     padding-left: 15px;
 
@@ -47,16 +47,16 @@ letter-spacing: 0.3em;
     transition: all 0.5s ease-in-out;
 
 }
-.form-cont .nombre{
+.nombre{
     width: 200px;
-}
-.form-cont input:hover {
+    }
+input:hover {
     background: #b3aca7;
     color: #e2dedb;
 }
 
 
-.form-cont #submit {
+#submit {
     width: 502px;
     
     padding: 0;
@@ -71,9 +71,9 @@ letter-spacing: 0.3em;
 
 }
 
-.form-cont .boton{
+.boton{
     margin-bottom:45px;
-    width: 350px;
+
 }
 
 .boton:hover{
@@ -86,7 +86,7 @@ letter-spacing: 0.3em;
 }
 
 
-.form-cont form a:hover{
+a:hover{
 
     font-size: 17px;
     color: #ffffff;
@@ -95,11 +95,6 @@ letter-spacing: 0.3em;
     padding: 10px;
 }
 
-.form-cont form input #password{
+input #password{
     width: 200px;
-}
-
-.form-cont textarea {
-    width: 350px;
-    resize: none;
 }

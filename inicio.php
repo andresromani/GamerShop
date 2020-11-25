@@ -1,12 +1,8 @@
         <div class="banner">
-            <div class="banner-text">
-                <div class="texto">
-                    <h1>Encontrá</h1>
-                    <h3>tu computadora perfecta</h3>
-                </div>
+            <div class="texto">
+                <h1>Encontrá</h1>
+                <h3>tu computadora perfecta</h3>
             </div>
-        
-            <div class="banner-img"></div>
         </div>
     
         <div class="marcas">
@@ -69,22 +65,22 @@
         
             <div class="productos-nuevos">
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>
                 <article>
-                    <img src="pc-gamer.jpg" alt="">
+                    <img src="img/pc-gamer.jpg" alt="">
                     <h3>Producto</h3>
                     <span>$9999</span>
                 </article>

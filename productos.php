@@ -7,41 +7,45 @@ if (isset($_GET['buscar'])) {
 ?>
 
 <div class="cont-productos">
-    <ul class="categorias">
-    <?php
-    try {
-        $sql = "SELECT * FROM categorias";
-        $stmt = $conexion -> prepare($sql);
-        $stmt -> execute();
+    <div class="categorias">
+        <h2><a href="#" id="btn-categorias">Categorias</a></h2>
 
-        while ($categoria = $stmt -> fetch()) {
-        ?>
-        <li>
-            <button class="category"><?php echo $categoria['nombre'] ?></button>
-            <ul class="subcategorias show">
-            <?php
-            $categoria_id = $categoria['categoria_id'];
-            $sql2 = "SELECT * FROM subcategorias WHERE categoria_id = ?";
-            $stmt2 = $conexion -> prepare($sql2);
-            $stmt2 -> bindParam(1, $categoria_id, PDO::PARAM_INT);
-            $stmt2 -> execute();
+        <ul id="category-list" class="hide-categorias">
+        <?php
+        try {
+            $sql = "SELECT * FROM categorias";
+            $stmt = $conexion -> prepare($sql);
+            $stmt -> execute();
 
-            while ($subcategoria = $stmt2 -> fetch()) {
+            while ($categoria = $stmt -> fetch()) {
             ?>
-            <li><a href="./?page=productos&subcategoria_id=<?php echo $subcategoria['subcategoria_id'] ?>"><?php echo $subcategoria['nombre'] ?></a></li>
+            <li>
+                <button class="category"><?php echo $categoria['nombre'] ?></button>
+                <ul class="subcategorias show">
+                <?php
+                $categoria_id = $categoria['categoria_id'];
+                $sql2 = "SELECT * FROM subcategorias WHERE categoria_id = ?";
+                $stmt2 = $conexion -> prepare($sql2);
+                $stmt2 -> bindParam(1, $categoria_id, PDO::PARAM_INT);
+                $stmt2 -> execute();
+
+                while ($subcategoria = $stmt2 -> fetch()) {
+                ?>
+                <li><a href="./?page=productos&subcategoria_id=<?php echo $subcategoria['subcategoria_id'] ?>"><?php echo $subcategoria['nombre'] ?></a></li>
+                <?php
+                }
+                ?>
+                </ul>
+            </li>
             <?php
             }
-            ?>
-            </ul>
-        </li>
-        <?php
         }
-    }
-    catch (PDOException $e) {
-        echo "Error: " . $e.getMessage();
-    }
-    ?>
-    </ul>
+        catch (PDOException $e) {
+            echo "Error: " . $e.getMessage();
+        }
+        ?>
+        </ul>
+    </div>
 
     <div class="productos">
         <?php
@@ -115,7 +119,7 @@ if (isset($_GET['buscar'])) {
                     ?>
                     <div class="botonesProducto">
                         <span class="precio"><?php echo $producto['precio'] ?></span>
-                        <a href="#">Carrito</a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </article>
                 <?php
@@ -130,5 +134,7 @@ if (isset($_GET['buscar'])) {
 </div>
 
 <?php
-include "footer.php";
+if (isset($_GET['buscar'])) {
+    include "footer.php";
+}
 ?>
