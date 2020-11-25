@@ -371,6 +371,17 @@ footer {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.acerca-de {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.acerca-de ul {
+    width: 184.94px;
+}
+
 .acerca-de h4 {
     font-size: 2em;
     text-transform: uppercase;
@@ -387,6 +398,10 @@ footer {
 .acerca-de ul a {
     text-decoration: none;
     color: #fff;
+}
+
+.seguinos {
+    text-align: center;
 }
 
 .seguinos h4 {
@@ -408,14 +423,10 @@ footer {
     font-weight: normal;
     color: #fff;
     margin-bottom: 30px;
-    text-align: center;
 }
 
 .mapa {
-    height: 230px;
-    width: 70%;
-    margin: 0 auto;
-    background-color: #c51616;
+    text-align: center;
 }
 
 .footer-texto {
